@@ -1,0 +1,44 @@
+Comando:
+Get-CimInstance Win32_ComputerSystem | Select-Object Manufacturer, Model
+
+Resultado:
+Manufacturer          Model
+------------          -----
+ASUSTeK COMPUTER INC. Vivobook_ASUSLaptop X1605VA_X1605VA
+ 
+Comando:
+Get-CimInstance Win32_Processor | Select-Object Name, NumberOfCores, NumberOfLogicalProcessors, MaxClockSpeed
+
+Resultado:
+												   Proce
+												   ssors
+----                                 ------------- -----
+13th Gen Intel(R) Core(TM) i9-13900H            14    20
+
+Comando:
+Get-CimInstance Win32_ComputerSystem | Select-Object @{n="RAM_GB";e={[math]::Round($_.TotalPhysicalMemory/1GB,2)}}
+
+Resultado: "------
+ 15,64
+"
+
+Comando: "Get-CimInstance Win32_OperatingSystem | Select-Object Caption, Version, BuildNumber, OSArchitecture
+"
+
+Resultado: "-------                  -------    ----------- --------
+Microsoft Windows 11 Pro 10.0.26200 26200       64 bits 
+
+"
+
+Comando: "python --version
+"
+
+Resultado: "python --version
+"
+
+
+Comando:"pip show pypdf | Select-String "Version"
+"
+
+Resultado: "Version: 6.21.2"
+
